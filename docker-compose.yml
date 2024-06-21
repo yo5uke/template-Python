@@ -13,10 +13,7 @@ services:
     volumes:
       - .:/app
       - cache:/home/pythonuser/.cache
-      - fonts:/usr/share/fonts
     tty: true
 volumes:
   cache:
-    external: true
-  fonts:
     external: true
