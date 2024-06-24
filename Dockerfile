@@ -20,16 +20,15 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 
 RUN useradd -m -s /bin/bash pythonuser
 
-ENV PATH $PATH:/home/pythonuser/.cache/pip/bin
-
 ENV QUARTO_MINOR_VERSION=1.5
-ENV QUARTO_PATCH_VERSION=45
+ENV QUARTO_PATCH_VERSION=47
 
 RUN wget -O quarto.deb https://github.com/quarto-dev/quarto-cli/releases/download/v${QUARTO_MINOR_VERSION}.${QUARTO_PATCH_VERSION}/quarto-${QUARTO_MINOR_VERSION}.${QUARTO_PATCH_VERSION}-linux-amd64.deb && \
     dpkg -i quarto.deb && \
     rm quarto.deb
 
 USER pythonuser
+ENV PATH $PATH:/home/pythonuser/.cache/pip/bin
 RUN mkdir -p /home/pythonuser/.cache
 
 WORKDIR /app
