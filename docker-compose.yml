@@ -9,11 +9,11 @@ services:
       - LANGUAGE=ja_JP:ja
       - LC_ALL=ja_JP.UTF-8
       - TZ=Asia/Tokyo
-      - PYTHONUSERBASE=/home/pythonuser/.cache/pip
+      - PYTHONUSERBASE=/home/pythonuser/.pip
     volumes:
       - .:/app
-      - cache:/home/pythonuser/.cache
+      - pip:/home/pythonuser/.pip
     tty: true
 volumes:
-  cache:
+  pip:
     external: true

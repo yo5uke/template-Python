@@ -28,8 +28,8 @@ RUN wget -O quarto.deb https://github.com/quarto-dev/quarto-cli/releases/downloa
     rm quarto.deb
 
 USER pythonuser
-ENV PATH $PATH:/home/pythonuser/.cache/pip/bin
-RUN mkdir -p /home/pythonuser/.cache
+ENV PATH $PATH:/home/pythonuser/.pip/bin
+RUN mkdir -p /home/pythonuser/.pip
 
 WORKDIR /app
 
